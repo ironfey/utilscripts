@@ -1,0 +1,24 @@
+#!/bin/bash
+
+datafile=$1
+columnstart=$2
+columnend=$3
+tmpfile=tmp.plt
+
+touch $tmpfile #TODO: check if successful
+if [ $? -ne 0 ]; then
+  echo "Error creating temporary gnuplot script. Do you have read/write access to this folder?"
+  exit 1
+fi
+
+if [ $2 -gt $3 ]; then
+  $2 = $3
+fi
+
+echo "plot \"$datafile\" using $2:$3 with lines" >> $tmpfile
+echo "pause 1" >> $tmpfile
+echo "reread" >> $tmpfile
+
+gnuplot $tmpfile
+
+rm -f $tmpfile

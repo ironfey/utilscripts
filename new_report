@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Specify name for new report"
+  exit 1
+fi
+
+cp -r ~/Templates/short_report ./$1
+mv ./$1/settings.tex ./$1/$1.tex
+rm -rf ./$1/.git

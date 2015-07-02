@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  echo "Specify name for new howto"
+  exit 1
+fi
+
+cp -r ~/Templates/howto ./$1
+mv ./$1/settings.tex ./$1/$1.tex
+rm ./$1/howto.png
+rm -rf ./$1/.git

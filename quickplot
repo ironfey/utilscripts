@@ -1,0 +1,19 @@
+#!/bin/bash
+
+datafile=$1
+tmppltfile=tmp.plt
+tmpdatafile=datafile.tmp
+
+touch $tmppltfile #TODO: check if successful
+if [ $? -ne  0 ]; then
+  echo "Error creating temporary gnuplot script. Do you have read/write access to this folder?"
+  exit 1
+fi
+
+echo "set key off" > $tmppltfile
+echo "plot \"$tmpdatafile\" using 1:2 with lines" >> $tmppltfile
+echo "pause -1" >> $tmppltfile
+
+gnuplot $tmppltfile
+
+rm -f $tmppltfile $tmpdatafile

@@ -1,0 +1,5 @@
+#!/bin/bash
+
+#SHELL=/home/felix/opt/plan9port/bin/rc
+#/home/felix/opt/plan9port/bin/9 acme -a
+acme -a

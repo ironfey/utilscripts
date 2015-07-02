@@ -1,0 +1,7 @@
+*.*
+!is_file
+!liveplot
+!quickplot
+!new_howto
+!new_report
+!.gitignore

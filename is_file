@@ -1,0 +1,8 @@
+#!/bin/bash
+
+read string
+
+if [[ (-f $string) ]]
+then
+  echo "$string"
+fi
